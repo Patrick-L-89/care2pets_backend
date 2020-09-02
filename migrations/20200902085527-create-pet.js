@@ -19,7 +19,6 @@ module.exports = {
       },
       animal_type: {
         type: Sequelize.STRING,
-        unique: true,
       },
       image: {
         type: Sequelize.STRING,
