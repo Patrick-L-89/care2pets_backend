@@ -1,0 +1,26 @@
+const express = require("express");
+const corsMiddleWare = require("cors");
+const Users = require("./models").user;
+const Pets = require("./models").pet;
+
+const app = express();
+
+const PORT = 4000;
+
+app.use(corsMiddleWare());
+
+app.get("/", (req, res) => {
+  res.send("Hi from express");
+});
+
+app.get("/pets", async (req, res) => {
+  const pets = await Pets.findAll();
+  res.status(200).send({ message: "ok", pets });
+});
+
+const caretakersRouter = require("./routers/caretakers");
+app.use("/caretakers", caretakersRouter);
+
+app.listen(PORT, () => {
+  console.log(`Listening on port: ${PORT}`);
+});

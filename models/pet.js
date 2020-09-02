@@ -8,11 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      pet.hasOne(models.user);
-      pet.belongsto(models.animal_sit);
+      pet.hasMany(models.animal_sit);
     }
   }
-  pets.init(
+  pet.init(
     {
       name: DataTypes.STRING,
       species: DataTypes.STRING,
@@ -22,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "pets",
+      modelName: "pet",
     }
   );
-  return pets;
+  return pet;
 };
