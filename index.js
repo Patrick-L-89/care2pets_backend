@@ -23,7 +23,18 @@ io.on("connection", (socket) => {
 
     if (error) return callback(error);
 
+    socket.emit("message", {
+      user: "admin",
+      text: `${user.name}, welcome to the chatroom ${user.room}`,
+    });
+    socket.broadcast.to(user.room).emit("message", {
+      user: "admin",
+      text: `${user.name} has joined the chatroom ${user.room}!`,
+    });
+
     socket.join(user.room);
+
+    callback();
   });
 
   socket.on("disconnect", () => {
