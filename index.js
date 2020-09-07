@@ -13,6 +13,14 @@ const PORT = 4000;
 
 app.use(corsMiddleWare());
 
+io.on("connection", (socket) => {
+  console.log("we have a new connection");
+
+  socket.on("disconnect", () => {
+    console.log("user has left the chat");
+  });
+});
+
 app.get("/", (req, res) => {
   res.send("Hi from express");
 });
