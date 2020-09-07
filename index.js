@@ -19,7 +19,11 @@ io.on("connection", (socket) => {
   console.log("we have a new connection");
 
   socket.on("join", ({ name, room }, callback) => {
-    console.log("what are name and room?", name, room);
+    const { error, user } = addUser({ id: socket.id, name, room });
+
+    if (error) return callback(error);
+
+    socket.join(user.room);
   });
 
   socket.on("disconnect", () => {
