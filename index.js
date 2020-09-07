@@ -16,6 +16,10 @@ app.use(corsMiddleWare());
 io.on("connection", (socket) => {
   console.log("we have a new connection");
 
+  socket.on("join", ({ name, room }) => {
+    console.log("what are name and room?", name, room);
+  });
+
   socket.on("disconnect", () => {
     console.log("user has left the chat");
   });
