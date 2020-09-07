@@ -16,7 +16,7 @@ app.use(corsMiddleWare());
 io.on("connection", (socket) => {
   console.log("we have a new connection");
 
-  socket.on("join", ({ name, room }) => {
+  socket.on("join", ({ name, room }, callback) => {
     console.log("what are name and room?", name, room);
   });
 
