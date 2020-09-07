@@ -22,10 +22,11 @@ app.get("/pets", async (req, res) => {
   res.status(200).send({ message: "ok", pets });
 });
 
+const chatroomRouter = require("./routers/chatrouter");
+app.use("/chatroom", chatroomRouter);
+
 const caretakersRouter = require("./routers/caretakers");
 app.use("/caretakers", caretakersRouter);
-
-console.log("What is server?", server);
 
 server.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
