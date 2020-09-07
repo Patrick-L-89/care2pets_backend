@@ -1,9 +1,13 @@
 const express = require("express");
 const corsMiddleWare = require("cors");
+const socketio = require("socket.io");
 const Users = require("./models").user;
 const Pets = require("./models").pet;
+const http = require("http");
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
 const PORT = 4000;
 
@@ -21,6 +25,8 @@ app.get("/pets", async (req, res) => {
 const caretakersRouter = require("./routers/caretakers");
 app.use("/caretakers", caretakersRouter);
 
-app.listen(PORT, () => {
+console.log("What is server?", server);
+
+server.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
