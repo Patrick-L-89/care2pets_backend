@@ -20,17 +20,14 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      streetname: {
+      streetName: {
         type: Sequelize.STRING,
       },
       city: {
         type: Sequelize.STRING,
       },
-      housenumber: {
+      houseNumber: {
         type: Sequelize.INTEGER,
-      },
-      postcode: {
-        type: Sequelize.STRING,
       },
       animalsits: {
         type: Sequelize.INTEGER,
@@ -41,17 +38,11 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
-      animal_types_interested: {
+      animalTypesInterested: {
         type: Sequelize.STRING,
       },
-      show_Caretaker: {
+      isCaretaker: {
         type: Sequelize.BOOLEAN,
-      },
-      latitude: {
-        type: Sequelize.FLOAT,
-      },
-      longitude: {
-        type: Sequelize.FLOAT,
       },
       createdAt: {
         allowNull: false,
