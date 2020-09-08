@@ -4,7 +4,6 @@ const socketio = require("socket.io");
 const Users = require("./models").user;
 const Pets = require("./models").pet;
 const http = require("http");
-
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -73,6 +72,9 @@ app.get("/pets", async (req, res) => {
   const pets = await Pets.findAll();
   res.status(200).send({ message: "ok", pets });
 });
+
+const loginRouter = require("./routers/login");
+app.use("/login", loginRouter);
 
 const chatroomRouter = require("./routers/chatrouter");
 app.use("/chatroom", chatroomRouter);
