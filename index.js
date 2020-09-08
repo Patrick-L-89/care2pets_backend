@@ -14,6 +14,9 @@ const PORT = 4000;
 
 app.use(corsMiddleWare());
 
+const bodyParserMiddleWare = express.json();
+app.use(bodyParserMiddleWare);
+
 io.on("connection", (socket) => {
   console.log("we have a new connection");
 
@@ -75,6 +78,9 @@ app.get("/pets", async (req, res) => {
 
 const loginRouter = require("./routers/login");
 app.use("/login", loginRouter);
+
+const userRouter = require("./routers/auth");
+app.use("/user", userRouter);
 
 const chatroomRouter = require("./routers/chatrouter");
 app.use("/chatroom", chatroomRouter);
