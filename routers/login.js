@@ -6,18 +6,31 @@ const bcrypt = require("bcrypt");
 const { user } = require("../models");
 const { toJWT } = require("../auth/jwt");
 
-router.post("/login", async (req, res) => {
-  if (!req.body.email || !req.body.password) {
-    res.status(400).send("Please provide an valid email and password");
+router.post("/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res
+        .status(400)
+        .send({ message: "Please provide both email and password" });
+    }
+
+    const user = await User.findOne({ where: { email } });
+
+    if (!user || !bcrypt.compareSync(password, user.password)) {
+      return res.status(400).send({
+        message: "User with that email not found or password incorrect",
+      });
+    }
+
+    delete user.dataValues["password"]; // don't send back the password hash
+    const token = toJWT({ userId: user.id });
+    return res.status(200).send({ token, ...user.dataValues });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send({ message: "Something went wrong, sorry" });
   }
-  const foundUser = await user.findOne({ where: { email: req.body.email } });
-  if (foundUser === null) {
-    return res.status(401).send("User not found");
-  }
-  if (!bcrypt.compareSync(req.body.password, foundUser.dataValues.password)) {
-    return res.status(401).send("password was wrong");
-  }
-  res.send({ jwt: toJWT({ userId: foundUser.dataValues.id }) });
 });
 
 module.exports = router;
