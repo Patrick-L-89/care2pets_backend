@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   pet.init(
     {
-      name: DataTypes.STRING,
+      petName: DataTypes.STRING,
       species: DataTypes.STRING,
       pet_description: DataTypes.TEXT,
       animal_type: DataTypes.STRING,

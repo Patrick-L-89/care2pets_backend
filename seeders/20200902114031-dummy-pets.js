@@ -6,7 +6,7 @@ module.exports = {
       "pets",
       [
         {
-          name: "yarr",
+          petName: "yarr",
           species: "grey parrot",
           pet_description: "I'm a jolly grey parrot",
           animal_type: "bird",
@@ -16,7 +16,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: "Parry",
+          petName: "Parry",
           species: "black-headed parrot",
           pet_description: "I'm a very happy little bird",
           animal_type: "bird",

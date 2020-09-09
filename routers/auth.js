@@ -44,7 +44,7 @@ router.post("/signup", async (req, res) => {
       description,
     });
 
-    delete newUser.dataValues["password"]; // don't send back the password hash
+    delete newUser.dataValues["password"];
 
     const token = toJWT({ userId: newUser.id });
 
@@ -78,7 +78,7 @@ router.post("/login", async (req, res, next) => {
       });
     }
 
-    delete user.dataValues["password"]; // don't send back the password hash
+    delete user.dataValues["password"];
     const token = toJWT({ userId: user.id });
     return res.status(200).send({ token, ...user.dataValues });
   } catch (error) {
