@@ -14,13 +14,13 @@ router.get("/mypets/:id", async (req, res) => {
 
   console.log("WHAT IS ID?", id);
 
-  const mypets = await Pets.findByPK(id);
+  const mypets = await Pets.findByPk(id);
 
-  if (homepage === null) {
+  if (mypets === null) {
     return res.status(404).send({ message: "pets are not found" });
   }
 
-  res.status(200).send({ message: "ok", pets });
+  res.status(200).send({ message: "ok", mypets });
 });
 
 module.exports = router;

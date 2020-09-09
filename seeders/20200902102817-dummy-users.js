@@ -20,7 +20,7 @@ module.exports = {
           animalsits: 5,
           description: "just a girl who loves parrots",
           image:
-            "https://briansmith.com/wp-content/uploads/2012/02/Brian-Smith-Anne-Hathaway.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Ladies_pirate_costume_design_in_Womens_Pirate_Costumes.jpg/450px-Ladies_pirate_costume_design_in_Womens_Pirate_Costumes.jpg",
           animalTypesInterested: "birds",
           isCaretaker: true,
           createdAt: new Date(),
@@ -37,7 +37,7 @@ module.exports = {
           animalsits: 2,
           description: "I love everything about birds",
           image:
-            "https://briansmith.com/wp-content/uploads/2012/02/Brian-Smith-Samuel-L-Jackson.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/5/54/50centphoto.jpg",
           animalTypesInterested: "birds",
           isCaretaker: true,
           createdAt: new Date(),
