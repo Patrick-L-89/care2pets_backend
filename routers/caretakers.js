@@ -9,9 +9,18 @@ router.get("/", async (req, res) => {
   res.status(200).send({ message: "ok", caretakers });
 });
 
-router.get("/mypets", async (req, res) => {
-  const mypets = await Pets.findbyPK();
-  res.status(200).send({ message: "ok, pets" });
+router.get("/mypets/:id", async (req, res) => {
+  const { id } = req.params;
+
+  console.log("WHAT IS ID?", id);
+
+  const mypets = await Pets.findByPK(id);
+
+  if (homepage === null) {
+    return res.status(404).send({ message: "pets are not found" });
+  }
+
+  res.status(200).send({ message: "ok", pets });
 });
 
 module.exports = router;

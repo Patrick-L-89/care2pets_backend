@@ -25,6 +25,16 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          petName: "Michelle",
+          species: "Leopard Gecko",
+          pet_description: "Bugs are the best, for eating",
+          animal_type: "lizard",
+          image: "www.lizzylizzard.com",
+          user_Id: 3,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
