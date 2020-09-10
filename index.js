@@ -1,4 +1,4 @@
-const corsMiddleWare = require("cors");
+const cors = require("cors");
 const express = require("express");
 const socketio = require("socket.io");
 const Users = require("./models").user;
@@ -11,7 +11,7 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const PORT = process.env.PORT || 4000;
 
-app.use(corsMiddleWare());
+app.use(cors());
 
 const bodyParserMiddleWare = express.json();
 app.use(bodyParserMiddleWare);
