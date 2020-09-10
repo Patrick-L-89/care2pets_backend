@@ -75,9 +75,6 @@ app.get("/pets", async (req, res) => {
   res.status(200).send({ message: "ok", pets });
 });
 
-const loginRouter = require("./routers/login");
-app.use("/login", loginRouter);
-
 const userRouter = require("./routers/auth");
 app.use("/user", userRouter);
 
