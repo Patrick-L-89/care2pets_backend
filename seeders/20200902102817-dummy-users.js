@@ -27,7 +27,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          userName: "birdfan58",
+          userName: "birdfan50",
           fullName: "frank Instein",
           email: "frank@birdfan.com",
           password: bcrypt.hashSync("frAnk", SALT_ROUNDS),
@@ -35,7 +35,7 @@ module.exports = {
           city: "Rotterdam",
           houseNumber: 209,
           animalsits: 2,
-          description: "I love everything about birds",
+          description: "I'll take you to the pet shop...",
           image:
             "https://upload.wikimedia.org/wikipedia/commons/5/54/50centphoto.jpg",
           animalTypesInterested: "birds",
@@ -52,10 +52,10 @@ module.exports = {
           city: "Rotterdam",
           houseNumber: 22,
           animalsits: 5,
-          description: "I love everything about lizards",
+          description: "In a way, lizards rule the world",
           image:
             "https://upload.wikimedia.org/wikipedia/commons/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg",
-          animalTypesInterested: "lizards",
+          animalTypesInterested: "otherReptiles",
           isCaretaker: true,
           createdAt: new Date(),
           updatedAt: new Date(),

@@ -9,6 +9,24 @@ router.get("/", async (req, res) => {
   res.status(200).send({ message: "ok", caretakers });
 });
 
+router.get("/:animalTypes", async (req, res) => {
+  const { animalTypes } = req.params;
+
+  console.log("WHAT IS animalTypes?", animalTypes);
+
+  const searchCaretakers = await Caretaker.findAll({
+    where: { animalTypesInterested: animalTypes },
+  });
+
+  if (searchCaretakers === null) {
+    return res
+      .status(404)
+      .send({ message: "no caretakers with your criterea were found" });
+  }
+
+  res.status(200).send({ message: "ok", searchCaretakers });
+});
+
 router.get("/mypets/:id", async (req, res) => {
   const { id } = req.params;
 
