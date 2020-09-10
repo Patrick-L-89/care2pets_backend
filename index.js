@@ -7,10 +7,9 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 app.use(corsMiddleWare());
 
