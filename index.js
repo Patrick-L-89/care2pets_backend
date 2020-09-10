@@ -1,5 +1,5 @@
-const express = require("express");
 const corsMiddleWare = require("cors");
+const express = require("express");
 const socketio = require("socket.io");
 const Users = require("./models").user;
 const Pets = require("./models").pet;
