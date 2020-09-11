@@ -41,7 +41,7 @@ Diagram of the database models: [wireframe with the database models](https://wir
 | get    | /caretakers              | get info on different caretakers             | none                           | no   |
 | get    | /caretakers/:animalTypes | get info on a specific animal type caretaker | animaltypes, params            | no   |
 | get    | /caretakers/mypets/:id   | get info about your own pet                  | id                             | no   |
-| get    | /chatroom/               | see if the chatroom is up and running        | none                           | no   |
+| get    | /chatroom                | see if the chatroom is up and running        | none                           | no   |
 
 ## Front end
 
