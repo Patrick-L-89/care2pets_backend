@@ -13,6 +13,6 @@
     "operatorsAliases": "0"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL"
+    "use_env_variable": "postgres://tpbxcvyu:Uz25H8A0yNPbhOd6kDP7QcrbXpPDFu1g@kandula.db.elephantsql.com:5432/tpbxcvyu"
   }
 }
