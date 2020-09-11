@@ -1,15 +1,16 @@
-const express = require("express");
 const cors = require("cors");
+
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 4000;
+
 const socketio = require("socket.io");
 const Users = require("./models").user;
 const Pets = require("./models").pet;
 const http = require("http");
-const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
-
-const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 
